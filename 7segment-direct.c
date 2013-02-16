@@ -1,8 +1,8 @@
 #include "7segment-direct.h";
 
-unsigned int seg7Numb_dig1;
-unsigned int seg7Numb_dig2;
-unsigned int seg7Numb_state;
+unsigned int seg7Numb_dig1; //store first digit for double digit number
+unsigned int seg7Numb_dig2; //store second digit for double digit number
+unsigned int seg7Numb_state; //determine order digits for display
 
 /**
  * Inicialization 7segment, 2digit display
@@ -20,7 +20,13 @@ void seg7DirInit(){
 
 }
 
-
+/**
+ * Display single digit on select position
+ *
+ * @param digit digit for display
+ * @param position position on 7segment
+ * @return void
+ */
 void seg7DirDispDigit(int digit, int position){
 
 	switch(position){
@@ -77,10 +83,15 @@ void seg7DirDispDigit(int digit, int position){
 	}
 }
 
+/**
+ * Display any number between 0-99
+ *
+ * @param number number for display
+ * @return void
+ */
 void seg7DirDispNumb(int number){
 
-	int a,d;
-
+	//for double digit number use timer
 	if(number>=10){
 		seg7Numb_dig2 = number%10;
 		seg7Numb_dig1 = number/10;
@@ -94,7 +105,9 @@ void seg7DirDispNumb(int number){
 }
 
 
-// Timer A0 interrupt service routine
+/**
+ * timer for use in double digit numbers
+ */
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void Timer_A (void)
 {

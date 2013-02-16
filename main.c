@@ -1,6 +1,9 @@
 #include <msp430g2553.h>
 #include "7segment-direct.h";
 
+/**
+ * example usage 7segment-direct connect, display number from 0 to 99
+ */
 
 int main(void) {
 	WDTCTL = WDTPW + WDTHOLD;		// Stop watchdog timer
