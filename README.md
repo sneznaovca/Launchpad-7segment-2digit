@@ -1,4 +1,4 @@
 Launchpad-7segment-2digit
 =========================
 
-Simple lib for Launchpad msp430 7segment 2 digit multiplex.
+Simple code for TI Launchpad msp430 and 7segment display with 2 digit, multiplex connect.
